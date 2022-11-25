@@ -12,7 +12,7 @@ interface metodos extends Personas{
     getAll():void;
     getById(dato:number):void;
     getByName(dato:string):void;
-    create(id:number,nc:string,n:string,a:string,e:number,c:string):void;
+    create(nc:string,n:string,a:string,e:number,c:string):void;
     update(id:number,nc:string,n:string,a:string,e:number,c:string):void;
     eliminar(dato:number):void;
 }
@@ -60,7 +60,7 @@ class Repositorio implements metodos{
             alert('Nombre no existe')
         }
     }
-    create(id:number,nc:string,n:string,a:string,e:number,c:string):void{
+    create(nc:string,n:string,a:string,e:number,c:string):void{
         let aux:number=0;
         for(let i:number=0;i<this.persona.length;i++){
         if(this.persona[i].id==id){
@@ -70,7 +70,7 @@ class Repositorio implements metodos{
         if(aux==0){
         this.persona.push(
             {
-                id:id,
+                id:this.persona.length+1,
                 cedula:nc,
                 nombre:n,
                 apellido:a,
@@ -133,13 +133,13 @@ do{
             r.getByName(r.nombre);
         break;
         case 4:
-            r.id=Number(prompt('Ingrese id'))
+            //r.id=Number(prompt('Ingrese id'))
             r.cedula=String(prompt('Ingrese cedula'))
             r.nombre=String(prompt('Ingrese nombre'))
             r.apellido=String(prompt('Ingrese apellido'))
             r.edad=Number(prompt('Ingrese edad'))
             r.ciudad=String(prompt('Ingrese ciudad'))
-            r.create(r.id,r.cedula,r.nombre,r.apellido,r.edad,r.ciudad)
+            r.create(r.cedula,r.nombre,r.apellido,r.edad,r.ciudad)
         break;
         case 5:
             r.id=Number(prompt('Ingrese id'))
