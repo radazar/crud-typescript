@@ -61,13 +61,7 @@ class Repositorio implements metodos{
         }
     }
     create(nc:string,n:string,a:string,e:number,c:string):void{
-        let aux:number=0;
-        for(let i:number=0;i<this.persona.length;i++){
-        if(this.persona[i].id==id){
-            aux=1;
-            alert('El id ya existe, no se pudo insertar')
-        }}
-        if(aux==0){
+        
         this.persona.push(
             {
                 id:this.persona.length+1,
@@ -77,7 +71,7 @@ class Repositorio implements metodos{
                 edad:e,
                 ciudad:c
             })
-            alert('Dato insertado correctamente')}
+            alert('Dato insertado correctamente')
     }
     update(id:number,nc:string,n:string,a:string,e:number,c:string):void{
         let aux:number=0;
